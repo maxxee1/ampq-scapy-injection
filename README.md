@@ -20,3 +20,13 @@ RabbitMQ/
 │   └── Insaneado.py          # Script para recibir y procesar los mensajes
 └── README.md                 # Documentación del proyecto
 ```
+## 🚀 Cómo levantar los servicios en Ubuntu
+
+Para correr este proyecto necesitas tener **Docker** instalado en tu máquina.
+
+### ✅ Verificar instalación
+
+Primero revisa si Docker ya está instalado:
+
+```bash
+docker --version
