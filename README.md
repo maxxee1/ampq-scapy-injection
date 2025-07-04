@@ -26,7 +26,70 @@ Para correr este proyecto necesitas tener **Docker** instalado en tu máquina.
 
 ### ✅ Verificar instalación
 
-Primero revisa si Docker ya está instalado:
-
+Primero revisa si Docker ya está instalado, si Docker está instalado, este comando debería mostrar la versión
 ```bash
 docker --version
+```
+## Si no lo tienes, sigue estos pasos para instalarlo limpio
+### 1️⃣ Elimina versiones previas (opcional pero recomendado)
+```bash
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+```
+### 2️⃣ Actualiza los paquetes del sistema
+```bash
+sudo apt update -y
+```
+
+###3️⃣ Agrega la clave GPG oficial de Docker
+```bash
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+```
+
+
+ ### 4️⃣ Agrega el repositorio oficial de Docker
+ ```
+ echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update
+```
+
+### 5️⃣ Instala Docker y sus herramientas
+```
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+### 6️⃣ Verifica que funciona
+```
+sudo docker run hello-world
+```
+
+💥 **¿No funcionó?**  
+Si algo salió mal, tu PC explotó, o simplemente quieres asegurarte de no romper nada más, revisa la **documentación oficial de Docker** aquí:  👉 [Instalación de Docker](https://docs.docker.com/engine/install/)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
