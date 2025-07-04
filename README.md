@@ -79,6 +79,31 @@ sudo docker run hello-world
 💥 **¿No funcionó?**  
 Si algo salió mal, tu PC explotó, o simplemente quieres asegurarte de no romper nada más, revisa la **documentación oficial de Docker** aquí:  👉 [Instalación de Docker](https://docs.docker.com/engine/install/)
 
+## 🧪 Instalación y Ejecución
+
+### 📥 Clonar el repositorio
+```bash
+git clone https://github.com/maxxee1/amqp-scapy-injection
+cd RabbitMQ
+```
+
+### 🚀 Iniciar el tráfico
+Construye e inicia los contenedores definidos en docker-compose.yml
+```bash
+sudo docker compose build
+sudo docker compose up
+```
+
+
+## 📦 Comandos Disponibles
+
+| Comando | Descripción |
+|-------------------------------|---------------------------------------------------------------------------------------------------------------|
+| `sudo docker compose down -v --rmi all` | Detiene y elimina los contenedores, volúmenes y todas las imágenes construidas para limpiar todo el entorno. |
+| `docker ps` | Muestra todos los contenedores que están corriendo actualmente. |
+| `docker system prune` | Elimina contenedores, redes y volúmenes que no se estén usando para liberar espacio y evitar basura acumulada. |
+
+
 
 
 
