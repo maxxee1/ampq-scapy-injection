@@ -77,7 +77,8 @@ sudo docker run hello-world
 ```
 
 💥 **¿No funcionó?**  
-Si algo salió mal, tu PC explotó, o simplemente quieres asegurarte de no romper nada más, revisa la **documentación oficial de Docker** aquí:  👉 [Instalación de Docker](https://docs.docker.com/engine/install/)
+Si algo salió mal, tu PC explotó, o simplemente quieres asegurarte de no romper nada más, revisa la **documentación oficial de Docker** aquí:
+👉 [Instalación de Docker](https://docs.docker.com/engine/install/)
 
 ## 🧪 Instalación y Ejecución
 
