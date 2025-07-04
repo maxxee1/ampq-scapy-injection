@@ -40,7 +40,7 @@ for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker c
 sudo apt update -y
 ```
 
-###3️⃣ Agrega la clave GPG oficial de Docker
+### 3️⃣ Agrega la clave GPG oficial de Docker
 ```bash
 sudo apt-get update
 sudo apt-get install ca-certificates curl
