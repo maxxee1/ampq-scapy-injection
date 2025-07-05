@@ -38,6 +38,7 @@ services:
       - red_docker
     cap_add:
       - NET_ADMIN
+    privileged: true
 
 networks:
   red_docker:
