@@ -3,7 +3,7 @@ import time
 
 print("🐇 Insaneador despertando...")
 
-# Intentos infinitos
+# Intentos infinitos para conectar al broker Rabbit
 while True:
     try:
         connection = pika.BlockingConnection(
@@ -22,10 +22,13 @@ while True:
 channel = connection.channel()
 channel.queue_declare(queue='insane_queue')
 
-channel.basic_publish(exchange='',
-                      routing_key='insane_queue',
-                      body='Holi insaneado 🫶✨🐇')
-
-print(" [x] Enviado: Holi insaneado")
-
-connection.close()
+# Bucle infinito para SPAMEAR mensajes
+contador = 1
+while True:
+    mensaje = f"Holi insaneado 🫶✨🐇 msg#{contador}"
+    channel.basic_publish(exchange='',
+                          routing_key='insane_queue',
+                          body=mensaje)
+    print(f" [x] Enviado: {mensaje}")
+    contador += 1
+    time.sleep(2)  # cada 2 segundos
