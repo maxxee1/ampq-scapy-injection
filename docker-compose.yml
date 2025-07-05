@@ -1,0 +1,34 @@
+version: '3'
+services:
+  rabbit:
+    image: rabbitmq:4-management
+    container_name: amqp
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: MAXI
+      RABBITMQ_DEFAULT_PASS: MAXI
+    networks:
+      - red_docker
+
+  el_enviador:
+    build: ./el_enviador
+    container_name: insaneador
+    depends_on:
+      - rabbit
+    networks:
+      - red_docker
+
+  el_espameado:
+    build: ./el_espameado
+    container_name: insaneado
+    depends_on:
+      - rabbit
+    networks:
+      - red_docker
+
+networks:
+  red_docker:
+    driver: bridge
+
