@@ -1,4 +1,4 @@
-version: '3'
+version: '3.9'
 
 services:
   rabbit:
@@ -43,4 +43,3 @@ services:
 networks:
   red_docker:
     driver: bridge
-
