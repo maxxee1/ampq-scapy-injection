@@ -14,9 +14,9 @@ Este proyecto es SOLO con fines educativos, para entender cómo interceptar/modi
 ├── el_espameado/
 │   ├── Dockerfile
 │   ├── Insaneado.py
-├── Scapy_scripts/
+├── el_sniffer/
 │   ├── Dockerfile
-│   ├── sniffer.py
+│   ├── modificador.py
 ```
 ## 🚀 Qué hace
 - Levanta RabbitMQ
