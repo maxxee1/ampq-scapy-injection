@@ -4,7 +4,8 @@
 Este proyecto es **SOLO** con fines educativos para entender cómo interceptar/modificar/inyectar tráfico AMQP usando **Scapy**. NO lo uses en redes ajenas. Sé decente: solo en entorno de laboratorio.
 
 ## 📂 Estructura
-.
+
+```bash
 ├── docker-compose.yml
 ├── el_enviador/
 │   ├── Dockerfile
@@ -15,6 +16,8 @@ Este proyecto es **SOLO** con fines educativos para entender cómo interceptar/m
 ├── el_sniffer/
 │   ├── Dockerfile
 │   ├── modificador.py
+
+```
 
 ## 🚀 Qué hace
 - Levanta RabbitMQ con interfaz de gestión.
