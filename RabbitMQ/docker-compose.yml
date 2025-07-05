@@ -1,4 +1,5 @@
 version: '3'
+
 services:
   rabbit:
     image: rabbitmq:4-management
@@ -27,6 +28,16 @@ services:
       - rabbit
     networks:
       - red_docker
+
+  el_sniffer:
+    build: ./el_sniffer
+    container_name: sniffermitm
+    depends_on:
+      - rabbit
+    networks:
+      - red_docker
+    cap_add:
+      - NET_ADMIN
 
 networks:
   red_docker:
